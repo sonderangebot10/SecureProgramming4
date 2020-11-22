@@ -1,57 +1,57 @@
 package Models;
 
 public class InitialStateModel {
-    private int ruleCount;
-    private String[][] rules;
-    private char[] tape;
-    private int headPosition;
-    private String state;
+    private int _ruleCount;
+    private String[][] _rules;
+    private char[] _tape;
+    private int _headPosition;
+    private String _state;
 
-    public InitialStateModel(int _ruleCount, String[][] _rules, char[] _tape, int _headPosition, String _state)
+    public InitialStateModel(int ruleCount, String[][] rules, char[] tape, int headPosition, String state)
     {
-        ruleCount = _ruleCount;
-        rules = _rules;
-        tape = _tape;
-        headPosition = _headPosition;
-        state = _state;
+        _ruleCount = ruleCount;
+        _rules = rules;
+        _tape = tape;
+        _headPosition = headPosition;
+        _state = state;
     };
 
-    public int getHeadPosition() {
-        return headPosition;
+    public int get_headPosition() {
+        return _headPosition;
     }
 
-    public int getRuleCount() {
-        return ruleCount;
+    public int get_ruleCount() {
+        return _ruleCount;
     }
 
-    public String getState() {
-        return state;
+    public String get_state() {
+        return _state;
     }
 
-    public char[] getTape() {
-        return tape;
+    public char[] get_tape() {
+        return _tape;
     }
 
-    public String[][] getRules() {
-        return rules;
+    public String[][] get_rules() {
+        return _rules;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void set_state(String state) {
+        _state = state;
     }
 
     public void setTape(int i, char value)
     {
-        this.tape[i] = value;
+        _tape[i] = value;
     }
 
     public void IncreaseHeadPosition()
     {
-        headPosition++;
+        _headPosition++;
     }
 
     public void DecreaseHeadPosition()
     {
-        headPosition--;
+        _headPosition--;
     }
 }

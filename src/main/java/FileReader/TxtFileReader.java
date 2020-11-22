@@ -1,6 +1,7 @@
 package FileReader;
 
 import Models.InitialStateModel;
+import Models.RulesModel;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -19,6 +20,24 @@ public class TxtFileReader implements IFileReader {
 
         char[] tape = ReadTape(readLine);
 
+        RulesModel rulesModel = ReadRulesModel(br, readLine);
+
+        br.close();
+
+        return new InitialStateModel(rulesModel.getRuleCount(), rulesModel.getRules(), tape, headPosition, "0");
+    }
+
+    private char[] ReadTape(String readLine)
+    {
+        char[] tape = new char[readLine.length()];
+        for( int i=0; i < readLine.length(); i++)
+            tape[i] = readLine.charAt(i);
+
+        return tape;
+    }
+
+    private RulesModel ReadRulesModel(BufferedReader br, String readLine) throws IOException
+    {
         int ruleCount = 0;
         String[][] rules = new String[100][5];
 
@@ -33,17 +52,6 @@ public class TxtFileReader implements IFileReader {
             ruleCount++;
         }
 
-        br.close();
-
-        return new InitialStateModel(ruleCount, rules, tape, headPosition, "0");
-    }
-
-    private char[] ReadTape(String readLine)
-    {
-        char[] tape = new char[readLine.length()];
-        for( int i=0; i < readLine.length(); i++)
-            tape[i] = readLine.charAt(i);
-
-        return tape;
+        return new RulesModel(ruleCount, rules);
     }
 }
